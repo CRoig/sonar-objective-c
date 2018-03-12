@@ -78,14 +78,14 @@ final class LizardMeasurePersistor {
         Metric<T> metric = measure.getMetric();
 
         try {
-            LOGGER.debug("Save measure {} for file {}", metric.key(), inputFile.filename());
+            LOGGER.debug("Save measure {} for file {}", metric.key(), inputFile.relativePath());
             sensorContext.<T>newMeasure()
                     .on(inputFile)
                     .forMetric(metric)
                     .withValue(measure.getValue())
                     .save();
         } catch (Exception e) {
-            LOGGER.error(" Exception -> {} -> {}", inputFile.filename(), metric.key(), e);
+            LOGGER.error(" Exception -> {} -> {}", inputFile.relativePath(), metric.key(), e);
         }
     }
 
