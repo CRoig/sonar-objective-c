@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'com.iadams.sonar-packaging' version '1.0-RC1'
+}
+
+group 'com.backelite.sonarqube'
+version '0.6.3-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+
+    maven { url "http://repository.sonarsource.org/content/repositories/sonar" }
+    maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    compileOnly 'org.sonarsource.sonarqube:sonar-plugin-api:5.6'
+    compileOnly 'org.slf4j:slf4j-api:1.7.21'
+
+    compile 'org.sonarsource.sslr:sslr-core:1.22'
+    compile('org.sonarsource.sslr-squid-bridge:sslr-squid-bridge:2.6.1') {
+        exclude(module: 'sslr-core')
+        exclude(module: 'sslr-xpath')
+        exclude(module: 'sonar-plugin-api')
+        exclude(module: 'picocontainer')
+        exclude(module: 'slf4j-api')
+        exclude(module: 'jcl-over-slf4j')
+    }
+    compile 'commons-lang:commons-lang:2.6'
+    compile 'commons-io:commons-io:2.5'
+    compile 'ch.qos.logback:logback-classic:1.0.13'
+    compile 'com.google.guava:guava:17.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'ant:ant:1.6'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-all:1.9.0'
+    testCompile 'org.assertj:assertj-core:3.5.2'
+    testCompile 'org.sonarsource.sonarqube:sonar-testing-harness:5.6'
+    testCompile 'org.sonarsource.sslr:sslr-testing-harness:1.22'
+    testCompile 'org.sonarsource.sonarlint.core:sonarlint-core:2.5.0.36'
+    testCompile('org.sonarsource.orchestrator:sonar-orchestrator:3.13') {
+        exclude(module: 'ojdbc6')
+    }
+}
+
+sonarPackaging {
+    pluginKey = 'backelitesonarobjectivecplugin'
+    pluginClass = 'org.sonar.plugins.objectivec.ObjectiveCPlugin'
+    pluginDescription = 'Enables analysis of Objective-C projects into SonarQube.'
+    pluginName = 'Objective-C Sonar Plugin'
+    pluginUrl = 'https://github.com/Backelite/sonar-objective-c'
+    pluginLicense = 'GNU LGPL 3'
+    pluginSourceUrl = 'https://github.com/Backelite/sonar-objective-c'
+    sonarQubeMinVersion = '5.6'
+    pluginDevelopers = 'Gilles Grousset'
+    useChildFirstClassLoader = false
+    requirePlugins = null
+    basePlugin = ''
+    pluginParent = null
+}
