@@ -53,7 +53,7 @@ public class ObjectiveCAstScannerTest {
     @Test
     public void lines() {
         SourceFile file = ObjectiveCAstScanner.scanSingleFile(new File("src/test/resources/objcSample.h"));
-        Assert.assertThat(file.getInt(ObjectiveCMetric.LINES), Matchers.is(17));
+        Assert.assertThat(file.getInt(ObjectiveCMetric.LINES), Matchers.is(18));
     }
 
     @Test
