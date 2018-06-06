@@ -50,15 +50,15 @@ dependencies {
 }
 
 sonarPackaging {
-    pluginKey = 'backelitesonarobjectivecplugin'
+    pluginKey = 'raatiniemisonarobjectivecplugin'
     pluginClass = 'org.sonar.plugins.objectivec.ObjectiveCPlugin'
     pluginDescription = 'Enables analysis of Objective-C projects into SonarQube.'
     pluginName = 'Objective-C Sonar Plugin'
-    pluginUrl = 'https://github.com/Backelite/sonar-objective-c'
+    pluginUrl = 'https://gitlab.com/raatiniemi/sonar-objective-c'
     pluginLicense = 'GNU LGPL 3'
-    pluginSourceUrl = 'https://github.com/Backelite/sonar-objective-c'
+    pluginSourceUrl = 'https://gitlab.com/raatiniemi/sonar-objective-c'
     sonarQubeMinVersion = '5.6'
-    pluginDevelopers = 'Gilles Grousset'
+    pluginDevelopers = 'Tobias Raatiniemi'
     useChildFirstClassLoader = false
     requirePlugins = null
     basePlugin = ''
