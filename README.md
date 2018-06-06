@@ -41,7 +41,8 @@ Binary packages are available in the release section.
 
 ### Release history
 
-### 0.6.3
+### 0.6.3 (detached from backelite project)
+- Detached from backelite project (no active maintainers)
 - Update project to use gradle instead of maven
 
 ### 0.6.2
