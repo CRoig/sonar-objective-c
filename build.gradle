@@ -3,7 +3,7 @@ plugins {
     id 'com.iadams.sonar-packaging' version '1.0-RC1'
 }
 
-group 'com.backelite.sonarqube'
+group 'me.raatiniemi.sonarqube'
 version '0.6.3-SNAPSHOT'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
