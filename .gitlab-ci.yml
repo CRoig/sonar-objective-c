@@ -1,0 +1,19 @@
+image: raatiniemi/gradle:latest
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - ./gradlew clean assemble
+  artifacts:
+    paths:
+      - build/libs/*.jar
+    expire_in: 1 day
+
+test:
+  stage: test
+  script:
+    - ./gradlew test
